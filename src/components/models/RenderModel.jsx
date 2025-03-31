@@ -5,15 +5,12 @@ import { Canvas } from "@react-three/fiber"
 import clsx from "clsx"
 import { Suspense } from "react"
 
-export default function RenderModel({children}){
+export default function RenderModel({ children }) {
     return (
-        <Canvas 
-        // style={{backgroundColor: "#DDDDDD"}}
-        >
+        <Canvas>
             <Suspense fallback={null}>
                 {children}
             </Suspense>
-            <Environment preset="apartment" background/>
         </Canvas>
     )
 } 
