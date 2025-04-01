@@ -27,6 +27,7 @@ export default function Home() {
         </div>
         <div className="bg-card rounded-2xl sticky top-28 h-[calc(100dvh-8rem)] lg:max-w-[45%] flex-1">
           <RenderModel>
+            
             <Model source={"https://cloud.appwrite.io/v1/storage/buckets/67e8525300339f64d6e5/files/67ea00e6003b9a69b09b/view?project=67e8520d003c0b64405c&mode=admin"}/>
           </RenderModel>
         </div>

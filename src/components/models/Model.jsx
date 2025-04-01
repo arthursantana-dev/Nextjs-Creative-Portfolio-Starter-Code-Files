@@ -11,24 +11,40 @@ Title: Apple II Computer
 "use client"
 
 import React, { useRef } from 'react'
-import { OrbitControls, Stage, useGLTF } from '@react-three/drei'
+import { OrbitControls, ScrollControls, Stage, useGLTF, useScroll } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import gsap from 'gsap'
 
 export default function Model({source}) {
 
   const modelRef = useRef()
+  const scroll = useScroll()
 
   const { scene } = useGLTF(source);
+
+  
+
+  useFrame(() => {
+    const windowHeight = window.innerHeight;
+    const fullHeight = document.documentElement.scrollHeight;
+    const currentPosition = window.scrollY;
+    
+    const scrollPercentage = (currentPosition / (fullHeight - windowHeight)) * 100;
+
+    scene.rotation.y = 0.2 * Math.sin(scrollPercentage * 0.04);
+    
+  })
 
   return (
     <group
       ref={modelRef}
       scale={[8, 8, 8]}
       dispose={null}>
-      <OrbitControls />
-      <Stage preset="rembrandt" intensity={1} environment="city">
+      <OrbitControls enableZoom={false} />
+        <Stage preset="rembrandt" intensity={1} environment="city">
         <primitive object={scene} />
       </Stage>
+      
     </group>
   )
 }
