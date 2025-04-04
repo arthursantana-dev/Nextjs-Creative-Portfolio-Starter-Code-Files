@@ -6,6 +6,7 @@ import RenderModel from "@/components/models/RenderModel";
 import Model from "@/components/models/Model";
 
 export default function Home() {
+
   return (
     <main className="px-4">
       <section className="flex flex-col lg:flex-row relative">
@@ -25,10 +26,10 @@ export default function Home() {
             Apple Computers gave owners the option to trade in their Apple I for an Apple II, mainly to free Wozniak from his customer services duties as the only designer of the computer. With about only 200 made, and many removed from circulation due to the returns, Apple I’s have become a valuable collector’s item.
           </p>
         </div>
-        <div className="bg-card rounded-2xl sticky top-28 h-[calc(100dvh-8rem)] lg:max-w-[45%] flex-1">
+        <div className="bg-card rounded-2xl sticky top-28 h-[calc(100dvh-8rem)] lg:max-w-[45%] flex-1 overflow-visible">
           <RenderModel>
-            
-            <Model source={"https://cloud.appwrite.io/v1/storage/buckets/67e8525300339f64d6e5/files/67ea00e6003b9a69b09b/view?project=67e8520d003c0b64405c&mode=admin"}/>
+
+            <Model source={"https://cloud.appwrite.io/v1/storage/buckets/67e8525300339f64d6e5/files/67ea00e6003b9a69b09b/view?project=67e8520d003c0b64405c&mode=admin"} />
           </RenderModel>
         </div>
       </section>

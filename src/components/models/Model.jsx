@@ -10,29 +10,49 @@ Title: Apple II Computer
 
 "use client"
 
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { OrbitControls, ScrollControls, Stage, useGLTF, useScroll } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
 
-export default function Model({source}) {
+export default function Model({ source }) {
+
 
   const modelRef = useRef()
+  const orbitControlsRef = useRef()
   const scroll = useScroll()
+  const { camera } = useThree()
 
   const { scene } = useGLTF(source);
 
-  
-
   useFrame(() => {
+
     const windowHeight = window.innerHeight;
     const fullHeight = document.documentElement.scrollHeight;
     const currentPosition = window.scrollY;
-    
+
     const scrollPercentage = (currentPosition / (fullHeight - windowHeight)) * 100;
 
-    scene.rotation.y = 0.2 * Math.sin(scrollPercentage * 0.04);
-    
+    const angle = scrollPercentage * 0.01;
+    const radius = 3;
+
+    camera.position.y += radius * Math.sin(angle * 0.02);
+
+    if (scrollPercentage > 10) {
+      if (scrollPercentage < 50) {
+        camera.position.x -= radius * Math.sin(angle);
+        camera.position.z -= radius * Math.cos(angle);
+      } else {
+        camera.position.x += radius * Math.sin(angle);
+        camera.position.z += radius * Math.cos(angle);
+      }
+    }
+
+    camera.lookAt(0, 0, 0); 
+
+    if (orbitControlsRef.current) {
+      orbitControlsRef.current.autoRotate = false;
+    }
   })
 
   return (
@@ -40,11 +60,14 @@ export default function Model({source}) {
       ref={modelRef}
       scale={[8, 8, 8]}
       dispose={null}>
-      <OrbitControls enableZoom={false} />
-        <Stage preset="rembrandt" intensity={1} environment="city">
+      <OrbitControls
+        ref={orbitControlsRef}
+        enableZoom={false}
+        enableRotate={false} 
+      />
+      <Stage preset="rembrandt" intensity={1} environment="city">
         <primitive object={scene} />
       </Stage>
-      
     </group>
   )
 }
