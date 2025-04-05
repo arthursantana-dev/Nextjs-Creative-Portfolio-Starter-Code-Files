@@ -13,10 +13,13 @@ export default function Header() {
             <NavigationMenu>
                 <NavigationMenuList className="flex text-sm">
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild href="#" ><Button variant="ghost">Home</Button></NavigationMenuLink>
+                        <NavigationMenuLink href="/" ><Button variant="ghost">Home</Button></NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink href="#" ><Button variant="ghost">Modelos</Button></NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink href="/cz1000plus" ><Button variant="ghost">CZ 1000 Plus</Button></NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink href="#" ><Button variant="ghost">Linha do Tempo</Button></NavigationMenuLink>
