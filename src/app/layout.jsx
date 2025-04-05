@@ -1,6 +1,7 @@
 import localFont from 'next/font/local';
 import "./globals.css";
 import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 
 const appleGaramond = localFont({
   src: [
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
       <body className={`${chicagoFLF.className} ${appleGaramond.variable}`}>
         <Header />
         {children}
+        <Footer/>
         </body>
     </html>
   );
