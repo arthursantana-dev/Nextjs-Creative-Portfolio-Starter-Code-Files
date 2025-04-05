@@ -17,7 +17,7 @@ export default function cz1000Plus() {
       <section className="flex flex-col lg:flex-row relative">
         <div className="py-6 px-8 flex-1">
           <Image src={"/computers/cz_logo.png"} height={200} width={300}/>
-          <h1 className="font-serif text-6xl font-light">CZ 1000 Plus</h1>
+          <h1 className="font-serif text-6xl font-light">ZX 81 / CZ 1000 Plus / TK 85</h1>
           <p className="text-sm mt-3 text-muted-foreground">Apr. 11, 1976</p>
           <p className="leading-7 [&:not(:first-child)]:mt-6">
             In 1975, Steve Wozniak designed the Apple I as his personal computer to use the ARPANET and play games. Its enthusiastic reception among the members of Silicon Valley’s Homebrew Computer Club prompted Wozniak and Steve Jobs to form Apple Computers to manufacture the Apple I. Wozniak designed the Apple I around two principles; making the machine affordable by minimizing the number of chips; and the ability to output video to a TV screen most users already owned. With the incorporation of the microprocessor and dynamic RAM, the Apple I proved how small, simple, and cheap a usable computer could be.
